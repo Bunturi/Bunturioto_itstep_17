@@ -30,6 +30,7 @@ class House:
             buyer.loan += loan_amount
             print(f"სახლი N{self.ID} {self.status} {buyer.name}-ზე. {buyer.name} აქს სესხი {loan_amount} ლარი")
 
+
 # buy house without loan
 # Person
 person1 = Person("Giorgi")
@@ -50,3 +51,25 @@ print("House status:", house1.status)
 print("House owner:", house1.owner.name)
 print(person1)
 print(person2)
+
+
+# buy house with loan and buyer has deposit and loan
+# Person
+person3 = Person("Irakli")
+person4 = Person("Tamo", 27000, 5000)
+print(person3)
+print(person4)
+
+house2 = House("002", 15000, owner=person3)
+
+print("House status:", house2.status)
+print("House owner:", house2.owner.name)
+
+# sell house_2
+house1.sell_house(person4, 15000)
+
+# print status
+print("House status:", house2.status)
+print("House owner:", house2.owner.name)
+print(person3)
+print(person4)
