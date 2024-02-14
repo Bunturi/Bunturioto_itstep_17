@@ -16,3 +16,16 @@ class House:
         self.price = price
         self.owner = owner
         self.status = status
+
+    def sell_house(self, buyer, loan_amount=None):
+        if loan_amount is None:
+            self.owner.deposit += self.price
+            self.owner = buyer
+            self.status = "გაყიდულია"
+            print(f"სახლი N{self.ID} {self.status} {buyer.name}-ზე.")
+        else:
+            self.owner.deposit += self.price
+            self.owner = buyer
+            self.status = "გაყიდულია სესხით"
+            buyer.loan += loan_amount
+            print(f"სახლი N{self.ID} {self.status} {buyer.name}-ზე. {buyer.name} აქს სესხი {loan_amount} ლარი")
